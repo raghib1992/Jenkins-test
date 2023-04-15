@@ -3,11 +3,11 @@ pipeline {
     agent any
 
     stages {
-        stage ('Clean SCM'){
-            steps {
-                cleanWs()
-            }
-        }
+        // stage ('Clean SCM'){
+        //     steps {
+        //         cleanWs()
+        //     }
+        // }
 
         stage ('Checkout Source Code') {
             steps {
