@@ -1,36 +1,19 @@
 pipeline {
-    
+
     agent any
 
     stages {
-
-        stage ('Clean Workspace') {
+        stage ('Clean SCM'){
             steps {
                 cleanWs()
             }
         }
 
-        stage ('Checkout') {
+        stage ('Checkout Source Code') {
             steps {
                 script {
-                    sourceCodeCheckout this
-                    // if ("${env.BRANCH_NAME}" == 'master'){
-                    //     wrap([$class: 'BuildUser']) {
-
-                    //         JOB_STARTED_BY = sh ( script: 'echo "${BUILD_USER}"', returnStdout: true).trim()                
-
-                    //         echo "Pipeline was triggered by: ${JOB_STARTED_BY}"
-
-                    //         if ("${JOB_STARTED_BY}" == ''){
-                    //           sourceCodeCheckout this
-                    //         } else {
-                    //         println "This stage is skipped as a result of job/pipeline was manually triggered"
-                    //         }
-                    //     }
-                    // } else {
-                    // sourceCodeCheckout this
-                    // }
-                } 
+                    SourceCodeCheckout this
+                }
             }
         }
     }
