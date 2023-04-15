@@ -12,7 +12,7 @@ pipeline {
         stage ('Checkout Source Code') {
             steps {
                 script {
-                    SourceCodeCheckout this
+                    sourceCodeCheckout this
                 }
             }
         }
