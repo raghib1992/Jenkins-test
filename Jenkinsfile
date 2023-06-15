@@ -15,7 +15,8 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                echo "doing build stuff.."
+                echo "Install fire module"
+                pip install -r requiments.txt
                 '''
             }
         }
@@ -23,7 +24,8 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
-                echo "doing test stuff.."
+                python3 myapp.py
+                python3 myapp.py --name=Raghib
                 '''
             }
         }
