@@ -16,7 +16,7 @@ pipeline {
                 echo "Building.."
                 sh '''
                 echo "Install fire module"
-                pip install -r requiments.txt
+                pip install -r requirements.txt
                 '''
             }
         }
