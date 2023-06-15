@@ -1,19 +1,38 @@
 pipeline {
+    agent { 
+        node {
+            label 'jenkins-agent-goes-here'
+            }
+      }
 
-    agent any
-
+      triggers{
+        pollSCM '*/5 * * * *'
+        // pull code once in evry five minutes
+      }
+      
     stages {
-        // stage ('Clean SCM'){
-        //     steps {
-        //         cleanWs()
-        //     }
-        // }
-
-        stage ('Checkout Source Code') {
+        stage('Build') {
             steps {
-                script {
-                    sourceCodeCheckout this
-                }
+                echo "Building.."
+                sh '''
+                echo "doing build stuff.."
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Testing.."
+                sh '''
+                echo "doing test stuff.."
+                '''
+            }
+        }
+        stage('Deliver') {
+            steps {
+                echo 'Deliver....'
+                sh '''
+                echo "doing delivery stuff.."
+                '''
             }
         }
     }
