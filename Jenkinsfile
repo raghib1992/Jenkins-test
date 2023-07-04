@@ -27,6 +27,7 @@ pipeline {
                 python3 myapp.py
                 python3 myapp.py --name=Raghib
                 '''
+		echo "Testing Finsh"
             }
         }
         stage('Deliver') {
